@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Management System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <div>
+      <p class="eyebrow">STUDENT PORTAL</p>
+      <h1>Student Management System</h1>
+      <p class="subtitle">Manage student records in one simple place.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="stats">
+      <article class="stat-card"><span>Total Students</span><strong id="totalStudents">0</strong></article>
+      <article class="stat-card"><span>Courses</span><strong id="totalCourses">0</strong></article>
+    </section>
+
+    <section class="panel">
+      <div class="section-heading">
+        <div><h2 id="formTitle">Add Student</h2><p>Enter the student's details below.</p></div>
+      </div>
+      <form id="studentForm">
+        <input type="hidden" id="studentId">
+        <div class="form-grid">
+          <label>Full Name<input id="name" type="text" placeholder="e.g. Aman Sharma" required></label>
+          <label>Roll Number<input id="roll" type="text" placeholder="e.g. BCA026" required></label>
+          <label>Email Address<input id="email" type="email" placeholder="student@example.com" required></label>
+          <label>Course
+            <select id="course" required>
+              <option value="">Choose course</option>
+              <option>BCA</option><option>BBA</option><option>B.Tech</option>
+              <option>B.Com</option><option>MCA</option><option>Other</option>
+            </select>
+          </label>
+        </div>
+        <div class="form-actions">
+          <button type="submit" id="saveButton">Add Student</button>
+          <button type="button" class="button-secondary hidden" id="cancelEdit">Cancel Edit</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="panel">
+      <div class="table-heading">
+        <div><h2>Student Records</h2><p>Search, edit, or remove a record.</p></div>
+        <input id="searchInput" class="search" type="search" placeholder="Search students...">
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Name</th><th>Roll No.</th><th>Email</th><th>Course</th><th>Actions</th></tr></thead>
+          <tbody id="studentTable"></tbody>
+        </table>
+        <p id="emptyMessage" class="empty">No students yet. Add your first student using the form above.</p>
+      </div>
+    </section>
+    <p class="note">Demo project: records are saved in this browser using localStorage.</p>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
